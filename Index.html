@@ -2,7 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Manga Translator">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="application-name" content="Manga Translator">
+<meta name="description" content="Translate manga from any language using OCR + AI. Supports CBZ, PDF, ZIP, and images.">
 <title>Manga Translator</title>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -13,8 +20,17 @@
     --ink:#0a0a0f; --paper:#f5f0e8; --accent:#e63946; --accent2:#ffd60a;
     --text:#e8e8f0; --muted:#6b6b80; --border:#2a2a3a; --success:#2ec4b6; --card:#1a1a28;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  /* Better touch targets for mobile */
+  button, select, input { touch-action: manipulation; }
+  /* Prevent text selection on UI elements */
+  header, nav, .btn, .fmt-tab, .copy-btn { user-select: none; -webkit-user-select: none; }
   body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,#ffffff08 1px,transparent 1px);background-size:20px 20px;pointer-events:none;z-index:0;}
 
   header{position:relative;z-index:10;padding:20px 20px 14px;border-bottom:3px solid var(--accent);background:linear-gradient(180deg,#0d0d18 0%,transparent 100%);text-align:center;}
